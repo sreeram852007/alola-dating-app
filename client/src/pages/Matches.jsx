@@ -1,46 +1,9 @@
 ﻿import { useState, useContext } from "react";
 import { AppContext } from "../App";
 
-const NEW_MATCHES = [
-  { _id: "m1", name: "Emma", photo: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop", isNew: true },
-  { _id: "m2", name: "Priya", photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop", isNew: true },
-  { _id: "m3", name: "Yuki", photo: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop", isNew: false },
-  { _id: "m4", name: "Amara", photo: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop", isNew: false },
-  { _id: "m5", name: "Sofia", photo: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&h=100&fit=crop", isNew: true },
-];
-
-const CONVERSATIONS = [
-  {
-    _id: "c1", name: "Emma Watson", age: 25,
-    photo: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop",
-    lastMsg: "That sounds amazing! When are you free? 😊",
-    time: "2m", unread: 2, online: true,
-  },
-  {
-    _id: "c2", name: "Priya Sharma", age: 27,
-    photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
-    lastMsg: "I love hiking too! Have you been to the Himalayas?",
-    time: "15m", unread: 0, online: true,
-  },
-  {
-    _id: "c3", name: "Marcus Johnson", age: 29,
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
-    lastMsg: "You: That recipe sounds delicious 🍜",
-    time: "1h", unread: 0, online: false,
-  },
-  {
-    _id: "c4", name: "Yuki Tanaka", age: 23,
-    photo: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop",
-    lastMsg: "Playing Zelda tonight, join my stream? 🎮",
-    time: "3h", unread: 1, online: false,
-  },
-  {
-    _id: "c5", name: "Amara Diallo", age: 26,
-    photo: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop",
-    lastMsg: "Just finished the marathon! 🏃‍♀️🎉",
-    time: "1d", unread: 0, online: false,
-  },
-];
+// Empty arrays - no bots, only real matches from backend
+const NEW_MATCHES = [];
+const CONVERSATIONS = [];
 
 export default function Matches() {
   const { setCurrentPage } = useContext(AppContext);
@@ -55,7 +18,7 @@ export default function Matches() {
     <div className="matches-page">
       <div className="page-header">
         <div className="page-title">Connections</div>
-        <div className="page-subtitle">{CONVERSATIONS.reduce((a,c) => a + c.unread, 0)} unread messages</div>
+        <div className="page-subtitle">0 unread messages</div>
       </div>
 
       <div style={{ display: "flex", gap: 8, padding: "0 20px 16px", flexShrink: 0 }}>
@@ -63,7 +26,7 @@ export default function Matches() {
           className={`filter-chip ${activeTab === "matches" ? "active" : ""}`}
           onClick={() => setActiveTab("matches")}
         >
-          New Matches ({NEW_MATCHES.length})
+          New Matches (0)
         </button>
         <button
           className={`filter-chip ${activeTab === "messages" ? "active" : ""}`}
@@ -96,34 +59,43 @@ export default function Matches() {
         </div>
       ) : (
         <>
-          <div className="section-label">NEW MATCHES ({NEW_MATCHES.filter(m => m.isNew).length})</div>
+          <div className="section-label">NEW MATCHES (0)</div>
           <div className="new-matches-row">
-            {NEW_MATCHES.map(m => (
-              <div key={m._id} className={`match-bubble ${m.isNew ? "match-bubble-new" : ""}`} onClick={() => setSelectedChat(m)}>
-                <img className="match-bubble-img" src={m.photo} alt={m.name} />
-                <span className="match-bubble-name">{m.name}</span>
+            {NEW_MATCHES.length === 0 && (
+              <div className="empty-state" style={{ padding: "20px", width: "100%" }}>
+                <div className="empty-emoji">💞</div>
+                <div className="empty-title">No matches yet</div>
+                <div className="empty-desc">Swipe right on profiles to find your match!</div>
               </div>
-            ))}
+            )}
           </div>
 
           <div className="section-label">MESSAGES</div>
           <div className="conversations-list">
-            {CONVERSATIONS.map(c => (
-              <div key={c._id} className="convo-item" onClick={() => setSelectedChat(c)}>
-                <div className="convo-avatar-wrap">
-                  <img className="convo-avatar" src={c.photo} alt={c.name} />
-                  {c.online && <div className="online-dot" />}
-                </div>
-                <div className="convo-info">
-                  <div className="convo-top">
-                    <span className="convo-name">{c.name}, {c.age}</span>
-                    <span className="convo-time">{c.time}</span>
-                  </div>
-                  <div className="convo-msg">{c.lastMsg}</div>
-                </div>
-                {c.unread > 0 && <div className="convo-unread-badge">{c.unread}</div>}
+            {CONVERSATIONS.length === 0 ? (
+              <div className="empty-state" style={{ padding: "40px 20px" }}>
+                <div className="empty-emoji">💬</div>
+                <div className="empty-title">No messages yet</div>
+                <div className="empty-desc">When you match with someone, you'll see their messages here!</div>
               </div>
-            ))}
+            ) : (
+              CONVERSATIONS.map(c => (
+                <div key={c._id} className="convo-item" onClick={() => setSelectedChat(c)}>
+                  <div className="convo-avatar-wrap">
+                    <img className="convo-avatar" src={c.photo} alt={c.name} />
+                    {c.online && <div className="online-dot" />}
+                  </div>
+                  <div className="convo-info">
+                    <div className="convo-top">
+                      <span className="convo-name">{c.name}, {c.age}</span>
+                      <span className="convo-time">{c.time}</span>
+                    </div>
+                    <div className="convo-msg">{c.lastMsg}</div>
+                  </div>
+                  {c.unread > 0 && <div className="convo-unread-badge">{c.unread}</div>}
+                </div>
+              ))
+            )}
           </div>
         </>
       )}
@@ -137,7 +109,6 @@ function ChatWindow({ match, onBack }) {
     { id: 2, text: "Hi! Yes, your profile is amazing ✨", sent: true, time: "2:31 PM" },
     { id: 3, text: "Thanks! I love your photos. That hiking trip looked incredible!", sent: false, time: "2:32 PM" },
     { id: 4, text: "It was! That was the Alps last summer 🏔️", sent: true, time: "2:33 PM" },
-    { id: 5, text: match.lastMsg || "Hi there! 👋", sent: false, time: "2:34 PM" },
   ]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
