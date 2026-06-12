@@ -1,4 +1,4 @@
-﻿import { useState, useContext } from "react";
+﻿import { useState, useContext, useEffect } from "react";
 import { AppContext } from "../App";
 
 const ALL_INTERESTS = [
@@ -8,12 +8,43 @@ const ALL_INTERESTS = [
 ];
 
 export default function Profile() {
-  const { user, setUser } = useContext(AppContext);
+  const { user, setUser, token } = useContext(AppContext);
   const [editing, setEditing] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [form, setForm] = useState({
-    bio: user?.bio || "",
-    interests: user?.interests || [],
+    bio: "",
+    interests: [],
   });
+
+  useEffect(() => {
+    if (user) {
+      setForm({
+        bio: user.bio || "",
+        interests: user.interests || [],
+      });
+      setLoading(false);
+    } else if (token) {
+      // Fetch user data if not loaded
+      fetchUserData();
+    } else {
+      setLoading(false);
+    }
+  }, [user, token]);
+
+  const fetchUserData = async () => {
+    try {
+      const res = await fetch("/api/auth/me", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setUser(data.user);
+      }
+    } catch (err) {
+      console.error("Error fetching user:", err);
+    }
+    setLoading(false);
+  };
 
   const toggleInterest = (i) => {
     setForm(f => ({
@@ -22,12 +53,57 @@ export default function Profile() {
     }));
   };
 
-  const save = () => {
-    setUser(u => ({ ...u, ...form }));
-    setEditing(false);
+  const save = async () => {
+    // Save to backend
+    try {
+      const res = await fetch("/api/users/profile", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ bio: form.bio, interests: form.interests }),
+      });
+      if (res.ok) {
+        const updatedUser = await res.json();
+        setUser(updatedUser);
+        setEditing(false);
+      } else {
+        // Fallback to local update if backend fails
+        setUser(u => ({ ...u, ...form }));
+        setEditing(false);
+      }
+    } catch (err) {
+      // Local update only
+      setUser(u => ({ ...u, ...form }));
+      setEditing(false);
+    }
   };
 
-  const u = user || {};
+  if (loading) {
+    return (
+      <div className="profile-page">
+        <div className="empty-state">
+          <div className="empty-emoji">⏳</div>
+          <div className="empty-title">Loading profile...</div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="profile-page">
+        <div className="empty-state">
+          <div className="empty-emoji">👤</div>
+          <div className="empty-title">Not logged in</div>
+          <div className="empty-desc">Please sign in to view your profile</div>
+        </div>
+      </div>
+    );
+  }
+
+  const u = user;
 
   return (
     <div className="profile-page">
