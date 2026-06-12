@@ -14,6 +14,11 @@ const io = new Server(server, {
 
 // ── Middleware ──────────────────────────────────────────────
 app.use(cors());
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok', timestamp: new Date(), message: 'Alola Dating App is running!' });
+});
+
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
