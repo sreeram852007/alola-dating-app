@@ -3,7 +3,8 @@ import { AppContext } from "../App";
 
 const NAV_ITEMS = [
   { id: "discover", icon: "🔥", label: "Discover" },
-  { id: "matches", icon: "💬", label: "Chats", badge: 2 },
+  { id: "search", icon: "🔍", label: "Search" },
+  { id: "matches", icon: "💬", label: "Chats", badge: 0 },
   { id: "profile", icon: "👤", label: "Profile" },
   { id: "settings", icon: "⚙️", label: "Settings" },
 ];

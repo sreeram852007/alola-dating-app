@@ -5,6 +5,7 @@ import Profile from "./pages/Profile";
 import Matches from "./pages/Matches";
 import Chat from "./pages/Chat";
 import Discover from "./pages/Discover";
+import Search from "./pages/Search";
 import Settings from "./pages/Settings";
 import Navbar from "./components/Navbar";
 import BottomNav from "./components/BottomNav";
@@ -43,28 +44,9 @@ export default function App() {
         logout();
       }
     } catch (e) {
-      // Demo mode - use sample user
-      setUser(sampleUser);
+      setUser(null);
+      logout();
     }
-  };
-
-  const sampleUser = {
-    _id: "demo1",
-    name: "Alex Rivera",
-    age: 26,
-    bio: "Adventure lover 🏕️ | Coffee addict ☕ | Dog parent 🐶",
-    photos: ["https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=600&fit=crop&auto=format"],
-    location: "San Francisco, CA",
-    interests: ["Hiking", "Photography", "Coffee", "Travel"],
-    gender: "male",
-    lookingFor: "women",
-    ageRange: { min: 21, max: 32 },
-    distance: 50,
-    premium: false,
-    matches: [],
-    likes: 12,
-    superLikes: 3,
-    boosts: 1,
   };
 
   const logout = () => {
@@ -92,6 +74,7 @@ export default function App() {
     <AppContext.Provider value={contextValue}>
       <div className="app-wrapper">
         {currentPage === "discover" && <Discover />}
+        {currentPage === "search" && <Search />}
         {currentPage === "matches" && <Matches />}
         {currentPage === "chat" && <Chat />}
         {currentPage === "profile" && <Profile />}
