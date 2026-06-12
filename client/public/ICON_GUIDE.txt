@@ -1,0 +1,11 @@
+To generate proper icons, visit this site on your phone:
+https://tools.picsart.com/image/icon-generator/
+
+Or use this simple method:
+1. Go to https://www.icoconverter.com/
+2. Upload any heart image
+3. Generate sizes: 72,96,128,144,152,192,384,512
+4. Download and rename to icon-[size]x[size].png
+5. Place them in this folder (client/public/)
+
+For quick testing, Chrome will auto-generate icons from the manifest.
