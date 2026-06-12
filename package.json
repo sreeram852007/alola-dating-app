@@ -1,0 +1,16 @@
+﻿{
+  "name": "alola-dating-app",
+  "version": "1.0.0",
+  "description": "Alola — Free worldwide dating app",
+  "scripts": {
+    "install:all": "cd client && npm install && cd ../server && npm install",
+    "build": "cd client && npm run build",
+    "start": "cd server && node index.js",
+    "dev:server": "cd server && nodemon index.js",
+    "dev:client": "cd client && npm run dev",
+    "setup": "npm run install:all && npm run build"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
