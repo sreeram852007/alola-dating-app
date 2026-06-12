@@ -1,33 +1,6 @@
 ﻿import { useState, useContext } from "react";
 import { AppContext } from "../App";
 
-const DEMO_USERS = [
-  {
-    _id: "demo1", name: "Alex Rivera", age: 26,
-    bio: "Adventure lover 🏕️ | Coffee addict ☕ | Dog parent 🐶",
-    photos: ["https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=600&fit=crop"],
-    location: "San Francisco, CA",
-    interests: ["Hiking","Photography","Coffee","Travel"],
-    gender: "male", lookingFor: "women", ageRange:{min:21,max:32}, distance:50,
-  },
-  {
-    _id: "demo2", name: "Sofia Chen", age: 24,
-    bio: "UX Designer by day, jazz pianist by night 🎹 | Matcha over coffee always",
-    photos: ["https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=600&fit=crop"],
-    location: "New York, NY",
-    interests: ["Jazz","Design","Yoga","Cooking"],
-    gender: "female", lookingFor: "men", ageRange:{min:22,max:30}, distance:30,
-  },
-  {
-    _id: "demo3", name: "Jordan Lee", age: 28,
-    bio: "Climbing walls and breaking hearts 🧗 | Bookworm when not outdoors",
-    photos: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop"],
-    location: "Austin, TX",
-    interests: ["Climbing","Reading","Music","Fitness"],
-    gender: "non-binary", lookingFor: "everyone", ageRange:{min:24,max:34}, distance:40,
-  }
-];
-
 export default function Auth() {
   const { setUser, setToken } = useContext(AppContext);
   const [tab, setTab] = useState("login");
@@ -54,21 +27,10 @@ export default function Auth() {
         const err = await res.json();
         setError(err.message || "Something went wrong");
       }
-    } catch {
-      // Demo mode fallback
-      const demoUser = { ...DEMO_USERS[0], name: form.name || "You", email: form.email };
-      localStorage.setItem("alola_token", "demo_token");
-      setToken("demo_token");
-      setUser(demoUser);
+    } catch (err) {
+      setError("Network error. Please check your connection and try again.");
     }
     setLoading(false);
-  };
-
-  const demoLogin = () => {
-    const u = DEMO_USERS[0];
-    localStorage.setItem("alola_token", "demo_token");
-    setToken("demo_token");
-    setUser(u);
   };
 
   return (
@@ -82,7 +44,7 @@ export default function Auth() {
         <div className="auth-hero-overlay" />
         <div className="auth-hero-content">
           <h1>Find Your <span className="gradient-text">Alola</span> Match</h1>
-          <p>Millions of real people. Real connections.</p>
+          <p>Real people. Real connections. 100% Free.</p>
         </div>
       </div>
 
@@ -146,10 +108,6 @@ export default function Auth() {
         </button>
 
         <div className="divider">or</div>
-
-        <button className="social-btn" onClick={demoLogin}>
-          🚀 Try Demo — No Account Needed
-        </button>
 
         {tab === "login" && (
           <p style={{ textAlign: "center", fontSize: "13px", color: "var(--text-dim)" }}>

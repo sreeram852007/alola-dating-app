@@ -1,71 +1,8 @@
 ﻿import { useState, useRef, useContext, useEffect } from "react";
 import { AppContext } from "../App";
 
-const SAMPLE_PROFILES = [
-  {
-    _id: "p1", name: "Emma Watson", age: 25,
-    bio: "Oxford grad living in London 📚 | Plant mum 🌿 | Passionate about sustainability and good coffee",
-    photos: [
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=700&fit=crop",
-      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&h=700&fit=crop",
-    ],
-    location: "London, UK", distance: "2 km",
-    interests: ["Books","Plants","Sustainability","Coffee","Art"],
-    verified: true,
-  },
-  {
-    _id: "p2", name: "Marcus Johnson", age: 29,
-    bio: "Chef & food photographer 🍜 | Exploring the world one dish at a time | Fluent in sarcasm",
-    photos: [
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=700&fit=crop",
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=700&fit=crop",
-    ],
-    location: "Paris, France", distance: "5 km",
-    interests: ["Cooking","Photography","Travel","Wine","Music"],
-    verified: true,
-  },
-  {
-    _id: "p3", name: "Priya Sharma", age: 27,
-    bio: "Neuroscience PhD candidate 🧠 | Yoga instructor on weekends | Amateur astronomer ✨",
-    photos: [
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=700&fit=crop",
-      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=700&fit=crop",
-    ],
-    location: "Mumbai, India", distance: "1 km",
-    interests: ["Science","Yoga","Astronomy","Hiking","Meditation"],
-    verified: false,
-  },
-  {
-    _id: "p4", name: "Lucas Silva", age: 31,
-    bio: "Architect designing better cities 🏙️ | Jazz musician at heart 🎷 | Fluent in 4 languages",
-    photos: [
-      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=700&fit=crop",
-    ],
-    location: "São Paulo, Brazil", distance: "8 km",
-    interests: ["Architecture","Jazz","Languages","Design","Travel"],
-    verified: true,
-  },
-  {
-    _id: "p5", name: "Yuki Tanaka", age: 23,
-    bio: "Manga artist & game dev 🎮 | Night owl 🦉 | Ramen connoisseur 🍜 | Let's explore Tokyo together",
-    photos: [
-      "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&h=700&fit=crop",
-    ],
-    location: "Tokyo, Japan", distance: "3 km",
-    interests: ["Gaming","Art","Anime","Ramen","Music"],
-    verified: true,
-  },
-  {
-    _id: "p6", name: "Amara Diallo", age: 26,
-    bio: "Social entrepreneur changing lives 🌍 | Marathon runner 🏃‍♀️ | Afrobeats dancer 💃",
-    photos: [
-      "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=700&fit=crop",
-    ],
-    location: "Lagos, Nigeria", distance: "12 km",
-    interests: ["Entrepreneurship","Running","Dance","Fashion","Community"],
-    verified: true,
-  },
-];
+// No sample profiles - only real users from database
+const SAMPLE_PROFILES = [];
 
 const FILTERS = ["All", "Nearby", "New", "Online", "Verified"];
 
@@ -162,11 +99,11 @@ export default function Discover() {
         <span className="header-logo">Alola</span>
       </div>
       <div className="empty-state">
-        <div className="empty-emoji">💞</div>
-        <div className="empty-title">You've seen everyone!</div>
-        <div className="empty-desc">Check back later for new people, or expand your distance settings to find more matches.</div>
-        <button className="btn-primary" style={{ marginTop: 16 }} onClick={() => { setCurrentIdx(0); setProfiles(SAMPLE_PROFILES); }}>
-          Refresh Profiles
+        <div className="empty-emoji">👥</div>
+        <div className="empty-title">No users yet!</div>
+        <div className="empty-desc">Be the first to join Alola. Share the app with friends to meet real people!</div>
+        <button className="btn-primary" style={{ marginTop: 16 }} onClick={() => { window.location.reload(); }}>
+          Refresh
         </button>
       </div>
     </div>
