@@ -9,62 +9,26 @@
   "background_color": "#0F0A14",
   "orientation": "portrait",
   "scope": "/",
-  "categories": ["social", "lifestyle", "dating"],
-  "lang": "en",
-  "dir": "ltr",
   "icons": [
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FF4E6A' rx='22'/%3E%3Ctext x='50' y='72' font-size='52' text-anchor='middle' fill='white' font-family='Arial'%3E??%3C/text%3E%3C/svg%3E",
+      "src": "/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJPSURBVHgB7ZuxaxNBFIe/syQKLQoimIhSxEaUhBRb0wSLgiCigpVUQVD8B4J2FhdFCBaB2MIfUFtQHARpHC1kMJUKxo9oKxFilVJTuEoSl7yXy3u5u73c7oV334/37t3d+9793nfvciIAAAAAAAAAAAAAAAAAAAAAAAAAAPC/eAF1QSd4hS6D59BZ9AR6SZS8RdfRQTRB1KVR6hS6hD5B16B2R/S6CwWCHkLPoCvoLtTa4Rq6gN6D/URyCk2iM6iPeuZqGp1E4bQwMIAq9AT3ebw6UQc1aHOcRwM0QAu0QQd0QAd0QAd0QJuecD2e91BHtIAeQe+fQ++h91G6N16eQtt5jn7pHdgzVO4jNB+pN3ILPUEQYI0qT/YaKvUeNRFUIUyirxDUKbSmJkOdRgkhziTYQdCSnAh21eSINhLBrpqcNE6iWlCSy/YyqyEZXbaXWQ1hc9leZjWEzWV7mdUQNpftZVZD2Fy2l1kNYXPZXmY1hM1le5nVEDaX7WVWQ9hctpdZDWFz2V5mNYTNZXuZ1RA2l+1lVkPYXLaXWQ1hc9leZjWEzWV7mdUQNpftZVZD2Fy2l1kNYXPZXmY1hM1le5nVEDaX7WVWQ9hctpdZDWFz2V5mNYTNZXuZ1RA2l+1lVkPYXLaXWQ1hc9leZjWEzWV7mdUQNpftZVZD2Fy2l1kNYXPZXmY1hM1le5nVEDaX7WVWQ9hctpdZDWFz2V5mNYTNZXuZ1RA2l+1lVkPYXLaXWQ1hc9leZjXkLxrdK8qHbhffAAAAAElFTkSuQmCC",
-      "sizes": "512x512",
-      "type": "image/png",
       "purpose": "any maskable"
     }
   ],
   "shortcuts": [
     {
       "name": "Discover",
-      "short_name": "Discover",
-      "description": "Find new matches",
-      "url": "/",
-      "icons": [
-        {
-          "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FF4E6A' rx='20'/%3E%3Ctext x='50' y='72' font-size='52' text-anchor='middle' fill='white'%3E??%3C/text%3E%3C/svg%3E",
-          "sizes": "any"
-        }
-      ]
+      "url": "/"
     },
     {
       "name": "Messages",
-      "short_name": "Chat",
-      "description": "Your conversations",
-      "url": "/?page=matches",
-      "icons": [
-        {
-          "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%238B5CF6' rx='20'/%3E%3Ctext x='50' y='72' font-size='52' text-anchor='middle' fill='white'%3E??%3C/text%3E%3C/svg%3E",
-          "sizes": "any"
-        }
-      ]
+      "url": "/?page=matches"
     },
     {
       "name": "Profile",
-      "short_name": "Profile",
-      "description": "Edit your profile",
-      "url": "/?page=profile",
-      "icons": [
-        {
-          "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2310B981' rx='20'/%3E%3Ctext x='50' y='72' font-size='52' text-anchor='middle' fill='white'%3E??%3C/text%3E%3C/svg%3E",
-          "sizes": "any"
-        }
-      ]
+      "url": "/?page=profile"
     }
-  ],
-  "screenshots": [],
-  "prefer_related_applications": false,
-  "related_applications": []
+  ]
 }
