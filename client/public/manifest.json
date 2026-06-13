@@ -1,6 +1,7 @@
 {
-  "name": "Alola Dating App",
+  "name": "Alola",
   "short_name": "Alola",
+  "description": "Connect with real people worldwide. Free dating app with real connections.",
   "id": "/",
   "start_url": "/",
   "display": "standalone",
@@ -8,15 +9,18 @@
   "background_color": "#0F0A14",
   "orientation": "portrait",
   "scope": "/",
+  "categories": ["social", "lifestyle", "dating"],
+  "lang": "en",
+  "dir": "ltr",
   "icons": [
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FF4E6A' rx='20'/%3E%3Ctext x='50' y='72' font-size='52' text-anchor='middle' fill='white'%3E??%3C/text%3E%3C/svg%3E",
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FF4E6A' rx='22'/%3E%3Ctext x='50' y='72' font-size='52' text-anchor='middle' fill='white' font-family='Arial'%3E??%3C/text%3E%3C/svg%3E",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAPwSURBVHgB7ZxBSJRhGMd/67S1zdRZaJcEo0uoEHSQoOgQdBHqUoF0C7pWl+oWpUtEh2zdIgpP3ToVBJ2kC4GHQr9DUYfILhW0KzITXLeWf/t+87nP837bzuF74Pftt+37/n6e53mf930FKigoKCgoKCgoKCgo+H/iO62lZcH0HZgDM+AkbKe19AuYAz0UuSqDfXAKTJFvAayA32AUpOQYyZMjewO2UuQqBR20ijPJTILnFJmGIAWnyR+MhLcUmYQ4FJ8pMgFr4F9SCD+BH2AYpOQ4hJQ6GYCbFJmEqJLyQbJaAytgM3lXwEnwjDzXYQU8Jsk0jJJnN8QMWEd8C+yAj+A5RdpgnIIdpIicHIsgJYcU+UbBXop0oN1iH5yjOQk5OMNzhufMekqVHCEpt9gP2pAW5YJvUFoMDoEeWqP8F/hBno9gjSJXCUdptc/EV8nzFayldScHWylJw2QLWjPOolVyRDl5JkD7N6/yBe/5IxUWTJ+Y6+/MBPk3wXFaLfC8Qa5whULhuyWbYI+No2CVfMthlz0C4FwFzQppOTgPJsiXSrQfSExiKaxTpAtmKTIFK/kveFXJA+CZA3/BGtiN7iHTYJYiE7CbhqxN8j8G/WAHLGckk4M1/3IY1jMSB+tk0zJ4wUASjFJkApJ4EBlGaxgHMXgqAwV/yMAILGcgDtZJq2WBEjYFj+wnYL5I/pIxTcEGKUuuN4yEnOQ8yE6+5OBYSpIgr+QHp+Abw1JwEE6QuTRp6zlFmqCEoP/lnCSPC4pBZyhFpuFIslMv2WTCHxgjT5P8KUPVQXZR8jdGLhjHt0FyKJNkGqbI3wPWySPfK2grWRNkkWSTe5QyYhgyCD7AHEWmM4ZtYxWIgk9i/GSPrFHyT5K/lyKdKUYcIH8HwGfwG/SDQXAPvAJfwHeQkiMLUjwD2wTOCxRpgD3gJngJ5snoUvJCq/bF5RBe5f0HrZGLHApWgTrwl8wQ2Cz/7kDdCjILwC2KrMEMBQYp0oHVwK80CM4yLIgUvykyJQXrKHIFKLBGkQm9ZJ4iF2ER3ZozTgqK9oHvx3Z8HfaK7RQ5D1ZQZBr2yrSCrRR5UgoOgp+kZw+bYc+UaRr2VOYshSZgH0VaA89oSTs/Th1ih7hLkSlYIbNYsVKpVKpUKpVKpVKpVCqVSqVSqVT/fX4Dj0RN/2Pj2vMAAAAASUVORK5CYII=",
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJPSURBVHgB7ZuxaxNBFIe/syQKLQoimIhSxEaUhBRb0wSLgiCigpVUQVD8B4J2FhdFCBaB2MIfUFtQHARpHC1kMJUKxo9oKxFilVJTuEoSl7yXy3u5u73c7oV334/37t3d+9793nfvciIAAAAAAAAAAAAAAAAAAAAAAAAAAPC/eAF1QSd4hS6D59BZ9AR6SZS8RdfRQTRB1KVR6hS6hD5B16B2R/S6CwWCHkLPoCvoLtTa4Rq6gN6D/URyCk2iM6iPeuZqGp1E4bQwMIAq9AT3ebw6UQc1aHOcRwM0QAu0QQd0QAd0QAd0QJuecD2e91BHtIAeQe+fQ++h91G6N16eQtt5jn7pHdgzVO4jNB+pN3ILPUEQYI0qT/YaKvUeNRFUIUyirxDUKbSmJkOdRgkhziTYQdCSnAh21eSINhLBrpqcNE6iWlCSy/YyqyEZXbaXWQ1hc9leZjWEzWV7mdUQNpftZVZD2Fy2l1kNYXPZXmY1hM1le5nVEDaX7WVWQ9hctpdZDWFz2V5mNYTNZXuZ1RA2l+1lVkPYXLaXWQ1hc9leZjWEzWV7mdUQNpftZVZD2Fy2l1kNYXPZXmY1hM1le5nVEDaX7WVWQ9hctpdZDWFz2V5mNYTNZXuZ1RA2l+1lVkPYXLaXWQ1hc9leZjWEzWV7mdUQNpftZVZD2Fy2l1kNYXPZXmY1hM1le5nVEDaX7WVWQ9hctpdZDWFz2V5mNYTNZXuZ1RA2l+1lVkPYXLaXWQ1hc9leZjXkLxrdK8qHbhffAAAAAElFTkSuQmCC",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
@@ -25,15 +29,42 @@
   "shortcuts": [
     {
       "name": "Discover",
-      "url": "/"
+      "short_name": "Discover",
+      "description": "Find new matches",
+      "url": "/",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23FF4E6A' rx='20'/%3E%3Ctext x='50' y='72' font-size='52' text-anchor='middle' fill='white'%3E??%3C/text%3E%3C/svg%3E",
+          "sizes": "any"
+        }
+      ]
     },
     {
       "name": "Messages",
-      "url": "/?page=matches"
+      "short_name": "Chat",
+      "description": "Your conversations",
+      "url": "/?page=matches",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%238B5CF6' rx='20'/%3E%3Ctext x='50' y='72' font-size='52' text-anchor='middle' fill='white'%3E??%3C/text%3E%3C/svg%3E",
+          "sizes": "any"
+        }
+      ]
     },
     {
       "name": "Profile",
-      "url": "/?page=profile"
+      "short_name": "Profile",
+      "description": "Edit your profile",
+      "url": "/?page=profile",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2310B981' rx='20'/%3E%3Ctext x='50' y='72' font-size='52' text-anchor='middle' fill='white'%3E??%3C/text%3E%3C/svg%3E",
+          "sizes": "any"
+        }
+      ]
     }
-  ]
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false,
+  "related_applications": []
 }
